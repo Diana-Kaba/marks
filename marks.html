@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <style>
-    table,
-    tr,
-    td {
-      border: solid 1px;
-    }
-  </style>
-  <script type='text/javascript'>
-    function average(arr) {
-      let sum = 0;
-      let length = 0;
-      for (let i in retStud.marks) {
-        sum += arr[i];
-        length++;
+  <head>
+    <style>
+      table,
+      tr,
+      td {
+        border: solid 1px;
       }
-      return sum / length;
-    }
+    </style>
+    <script type="text/javascript">
+      function average(arr) {
+        let sum = 0;
+        let length = 0;
+        for (let i in arr) {
+          sum += +arr[i];
+          length++;
+        }
+        return sum / length;
+      }
+    </script>
+  </head>
 
-  </script>
-</head>
-
-<body>
-  <script>
-    document.write(localStorage.stud);
-    let retStud = JSON.parse(localStorage.getItem("stud"));
-    document.write("<table><tr><td><b>Студент:</b> " + retStud.name + "</td></tr>" + "<tr><td><b>Оценки:</b> " + retStud.marks + "</td></tr>" + "<tr><td><b>Средний балл:</b> " + (average(retStud.marks)).toFixed(2) + "</td></tr></table>");
-  </script>
-</body>
-
+  <body>
+    <script>
+      document.write(localStorage.stud);
+      let retStud = JSON.parse(localStorage.getItem("stud"));
+      document.write(
+        "<table><tr><td><b>Студент:</b> " +
+          retStud.name +
+          "</td></tr>" +
+          "<tr><td><b>Оценки:</b> " +
+          retStud.marks +
+          "</td></tr>" +
+          "<tr><td><b>Средний балл:</b> " +
+          average(retStud.marks).toFixed(2) +
+          "</td></tr></table>"
+      );
+    </script>
+  </body>
 </html>
