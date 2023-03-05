@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+</head>
+
+<body>
+    <form name="marks" method="GET" onSubmit="return saveMarks(this)">
+        Введите имя: <input type="text" name="name" size="15"><br />
+        Введите оценки:<br />
+        Java <input type="text" name="m1" size="4"><br />
+        PHP <input type="text" name="m2" size="4"><br />
+        JavaScript <input type="text" name="m3" size="4"><br />
+        <input type="submit" value="Сохранить" name="save"><br />
+        <a href="marks.html">Перейти на страницу оценок</a>
+    </form>
+    <script>
+        function saveMarks(f) {
+            let name = f.name.value;
+            let m1 = f.m1.value;
+            let m2 = f.m2.value;
+            let m3 = f.m3.value;
+            let objStud = { name, marks: [m1, m2, m3] };
+            let serStud = JSON.stringify(objStud);// сериализация
+            localStorage.setItem("stud", serStud); // сохранение в localStorage
+        }
+    </script>
+
+</body>
+
+</html>
